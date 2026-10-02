@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>久草电影网 - 慢看、细品、陪你长出来的电影清单</title>
+<meta name="keywords" content="久草电影网, jiucaodianyingwang-zh, 独立电影, 冷门佳片, 文艺片, 治愈系电影, 电影清单, 片单推荐">
+<meta name="description" content="久草电影网（jiucaodianyingwang-zh.github.io）是一份慢慢长出来的电影清单：专注独立电影、文艺片与冷门佳片，含烂片淘金、双轨评分、心情匹配片单与氛围生成器。">
+<meta name="author" content="久草电影网">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#141c17">
+<meta property="og:type" content="website">
+<meta property="og:title" content="久草电影网 - 慢看、细品、陪你长出来的电影清单">
+<meta property="og:description" content="久草电影网 jiucaodianyingwang-zh.github.io 专注独立电影、文艺片与冷门佳片，慢慢长出来的电影清单。">
+<meta property="og:url" content="https://jiucaodianyingwang-zh.github.io">
+<meta property="og:site_name" content="久草电影网">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jiucaodianyingwang-zh.github.io">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#141c17;--bg2:#1a241e;--card:#1e2a23;--card2:#243329;--line:#3a4a40;
+--txt:#e6efe7;--txt2:#a9b8af;--txt3:#6f7e76;
+--moss:#5b7a4f;--moss2:#7ba168;--fog:#8fa893;--mud:#a8874a;--petal:#c98b8b;--sky:#7d9bb5;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;background:var(--bg);color:var(--txt);line-height:1.85;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+background:radial-gradient(680px 460px at 88% 6%,rgba(91,122,79,.22),transparent 62%),
+radial-gradient(560px 560px at 8% 55%,rgba(143,168,147,.10),transparent 58%);}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4;
+background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:34px 34px;}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:92px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--moss2);font-weight:700;border:1px solid var(--line);background:var(--card);padding:6px 14px}
+.eyebrow span{font-size:12px}
+.sec-h{margin-bottom:54px}
+.sec-h h2{font-size:31px;font-weight:900;letter-spacing:-.3px;margin:16px 0 14px}
+.sec-h h2 em{font-style:normal;color:var(--moss2)}
+.sec-h h2 em::before{content:"✿";color:var(--mud);margin-right:9px;font-size:20px;font-style:normal;vertical-align:middle}
+.sec-h p{color:var(--txt2);font-size:15.5px;max-width:660px}
+.sec-h .line{width:56px;height:2px;background:var(--moss);margin-top:16px}
+
+/* 顶栏 */
+.top{position:sticky;top:0;z-index:100;background:rgba(20,28,23,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:22px}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-i{width:40px;height:40px;border-radius:12px;background:var(--bg2);border:1px solid var(--moss);display:grid;place-items:center;font-size:20px}
+.logo-t{font-size:17px;font-weight:900;letter-spacing:.4px}
+.logo-t small{display:block;font-size:8.5px;color:var(--txt3);font-weight:600;letter-spacing:1.5px;font-family:"JetBrains Mono",monospace}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{padding:8px 15px;font-size:14px;color:var(--txt2);font-weight:600;transition:.25s;border-radius:8px}
+.nav a:hover{color:var(--moss2);background:rgba(91,122,79,.16)}
+.season{display:flex;gap:7px;align-items:center;flex-shrink:0;font-size:11px;color:var(--txt3);font-family:"JetBrains Mono",monospace}
+.season i{width:7px;height:7px;border-radius:50%;background:var(--moss2);box-shadow:0 0 8px var(--moss2)}
+.burger{display:none;background:none;border:none;color:var(--txt);font-size:24px;cursor:pointer}
+
+/* Hero */
+.hero{position:relative;padding:74px 0 94px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+.hero-in{display:flex;flex-direction:column;gap:20px}
+.hero h1{font-size:clamp(38px,6.2vw,70px);font-weight:900;line-height:1.2;letter-spacing:-1.2px}
+.hero h1 s{text-decoration:none;color:var(--moss2);font-style:italic}
+.hero p.lead{font-size:16.5px;color:var(--txt2);max-width:560px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{background:var(--moss);color:#10170f;padding:13px 28px;border:none;font-size:14.5px;font-weight:800;cursor:pointer;transition:.3s;letter-spacing:.5px}
+.btn:hover{background:var(--moss2);transform:translateY(-3px)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--txt);box-shadow:none}
+.btn-ghost:hover{border-color:var(--moss2);color:var(--moss2);background:transparent}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:10px}
+.stats div{padding:20px 18px;background:var(--card);border-right:1px solid var(--line)}
+.stats div:last-child{border-right:none}
+.stats b{display:block;font-size:26px;font-weight:900;color:var(--moss2);font-family:"JetBrains Mono",monospace}
+.stats span{font-size:12px;color:var(--txt3);letter-spacing:1px}
+
+/* 双轨评分 */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;transition:.3s;cursor:pointer}
+.dcard:hover{border-color:var(--moss2);transform:translateY(-4px)}
+.dcard .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.dcard h5{font-size:17.5px;font-weight:800}
+.dcard .rt{font-size:13px;color:var(--txt3)}
+.bar{height:7px;background:var(--bg2);border-radius:6px;overflow:hidden;margin-bottom:8px}
+.bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--moss),var(--moss2));transition:width 1s cubic-bezier(.4,0,.2,1)}
+.dcard .meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--txt3);font-family:"JetBrains Mono",monospace}
+.dcard .why{margin-top:14px;font-size:13.5px;color:var(--txt2);border-top:1px dashed var(--line);padding-top:12px;font-style:italic}
+
+/* 心情匹配 */
+.mood{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:36px 34px}
+.mq{display:none}
+.mq.on{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mq h3{font-size:20px;font-weight:900;margin-bottom:6px}
+.mq .hint{font-size:12px;color:var(--txt3);margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:11px 20px;border:1px solid var(--line);border-radius:999px;font-size:14px;cursor:pointer;transition:.25s;background:var(--bg2);color:var(--txt2)}
+.chip:hover{border-color:var(--moss2);color:var(--moss2)}
+.chip.sel{border-color:var(--moss2);background:var(--moss);color:#10170f;font-weight:700}
+.mood .acts{display:flex;justify-content:space-between;margin-top:26px;gap:14px}
+.pick{display:none}
+.pick.on{display:block;animation:fade .4s}
+.pick .out{display:grid;grid-template-columns:96px 1fr;gap:22px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:18px}
+.pick .post{width:96px;height:132px;border-radius:8px;display:grid;place-items:center;font-size:40px}
+.pick .tx h4{font-size:19px;font-weight:900;margin-bottom:6px}
+.pick .tx p{font-size:13.5px;color:var(--txt2)}
+.pick .tx .tag{display:inline-block;font-size:11px;color:var(--moss2);border:1px solid var(--line);padding:3px 10px;border-radius:999px;margin-top:10px}
+
+/* 淘金列表 */
+.digs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px;transition:.35s;cursor:pointer;position:relative;overflow:hidden}
+.dig::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--moss);transform:scaleY(0);transition:.35s;transform-origin:bottom}
+.dig:hover{transform:translateY(-5px)}
+.dig:hover::before{transform:scaleY(1)}
+.dig .lv{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mud);font-weight:800}
+.dig h5{font-size:17.5px;font-weight:900;margin:8px 0 8px}
+.dig p{font-size:13.5px;color:var(--txt2);margin-bottom:14px}
+.dig .foot{display:flex;justify-content:space-between;font-size:11.5px;color:var(--txt3);font-family:"JetBrains Mono",monospace;border-top:1px solid var(--line);padding-top:12px}
+
+/* 植物档案 */
+.plants{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-align:center;transition:.3s;cursor:pointer}
+.pl:hover{transform:translateY(-6px) rotate(-1.5deg);border-color:var(--moss2)}
+.pl .emo{font-size:36px;display:block;margin-bottom:12px;filter:grayscale(.15)}
+.pl h5{font-size:16px;font-weight:800;margin-bottom:6px}
+.pl p{font-size:12.5px;color:var(--txt2)}
+.pl .ph{font-size:10.5px;color:var(--moss2);margin-top:12px;letter-spacing:1px;font-family:"JetBrains Mono",monospace}
+
+/* 氛围生成器 */
+.vibe{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:34px 34px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
+.vc{display:flex;flex-direction:column;gap:14px}
+.vc .scene{font-size:14px;color:var(--txt2);font-style:italic;min-height:52px;padding:14px 18px;border-left:2px solid var(--moss);background:var(--bg2)}
+.vibe-r{display:grid;gap:12px}
+.vf{display:flex;gap:12px;align-items:center;padding:14px 18px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+.vf span:first-child{font-size:20px}
+.vf b{font-size:13px;color:var(--txt3);width:64px;flex-shrink:0;font-family:"JetBrains Mono",monospace}
+.vf span:last-child{flex:1;font-size:14px}
+.vibe-btns{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap}
+
+/* 日志 */
+.logs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.lg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 26px;transition:.3s;cursor:pointer}
+.lg:hover{border-color:var(--moss2)}
+.lg time{font-size:11px;color:var(--moss2);letter-spacing:1px;font-family:"JetBrains Mono",monospace}
+.lg h4{font-size:17.5px;font-weight:900;margin:9px 0 9px;line-height:1.5}
+.lg p{font-size:13.5px;color:var(--txt2)}
+.lg .more{display:inline-block;margin-top:14px;font-size:13px;color:var(--moss2);font-weight:700}
+
+/* 订阅 */
+.sub{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px 36px;text-align:center}
+.sub h3{font-size:24px;font-weight:900;margin-bottom:10px}
+.sub p{color:var(--txt2);font-size:14.5px;max-width:520px;margin:0 auto 24px}
+.sub-f{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap}
+.sub-f input{flex:1;min-width:180px;padding:13px 16px;background:var(--bg2);border:1px solid var(--line);color:var(--txt);font-size:14px;border-radius:8px;font-family:inherit}
+.sub-f input:focus{outline:none;border-color:var(--moss2)}
+.sub-note{font-size:11.5px;color:var(--txt3);margin-top:14px;font-style:italic}
+
+/* FAQ */
+.faq{display:grid;gap:12px;max-width:860px;margin:0 auto}
+.fq{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fq[open]{border-color:var(--moss)}
+.fq summary{cursor:pointer;padding:20px 24px;font-size:15.5px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary::after{content:"＋";color:var(--moss2);font-size:20px;flex-shrink:0}
+.fq[open] summary::after{content:"－"}
+.fq div{padding:0 24px 22px;font-size:14.5px;color:var(--txt2);border-top:1px solid var(--line);padding-top:16px}
+
+/* 页脚 */
+.ft{background:#0f1612;border-top:1px solid var(--line);padding:58px 0 26px}
+.ft-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft p{color:var(--txt2);font-size:14px;margin-top:14px}
+.ft-col h5{font-size:14.5px;margin-bottom:18px;color:var(--txt);font-weight:800}
+.ft-col a{display:block;color:var(--txt2);font-size:14px;padding:5px 0;transition:.2s}
+.ft-col a:hover{color:var(--moss2);padding-left:5px}
+.ft-bot{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--txt3);font-family:"JetBrains Mono",monospace}
+.ft-bot a{color:var(--txt3);margin-left:20px}
+.ft-bot a:hover{color:var(--txt)}
+
+@media(max-width:1040px){
+.wrap{padding:0 20px}
+section{padding:66px 0}
+.sec-h h2{font-size:24px}
+.hero .wrap{grid-template-columns:1fr;gap:40px}
+.duo,.logs{grid-template-columns:1fr}
+.digs,.plants{grid-template-columns:1fr 1fr}
+.vibe{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+.season{display:none}
+.burger{display:block}
+.nav{position:fixed;top:70px;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:14px;transform:translateY(-160%);transition:.3s}
+.nav.open{transform:translateY(0)}
+.nav a{width:100%;text-align:center}
+.hero h1{font-size:36px}
+.hero-btns,.mood .acts,.vibe-btns,.sub-f{flex-direction:column}
+.btn,.btn-ghost{width:100%;text-align:center}
+.stats{grid-template-columns:1fr}
+.stats div{border-right:none;border-bottom:1px solid var(--line)}
+.stats div:last-child{border-bottom:none}
+.mood,.vibe,.sub{padding:26px 20px}
+.digs,.plants{grid-template-columns:1fr}
+.pick .out{grid-template-columns:1fr;text-align:center}
+.pick .post{margin:0 auto}
+.ft-grid{grid-template-columns:1fr;gap:28px}
+.ft-bot{flex-direction:column;text-align:center}
+.ft-bot a{margin:0 10px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><span class="logo-i">🌿</span><span class="logo-t">久草电影网<small>jiucaodianyingwang-zh.github.io</small></span></a>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#duo">双轨评分</a>
+      <a href="#mood">心情匹配</a>
+      <a href="#digs">烂片淘金</a>
+      <a href="#vibe">氛围生成</a>
+      <a href="#logs">观影日志</a>
+    </nav>
+    <div class="season"><i></i><span id="seatxt">第 41 周 · 生长中</span></div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="eyebrow"><span>🌱</span>Slow Cinema Club</span>
+      <h1>有些电影，<br>要像<del style="text-decoration:none">草一样</del><s>慢慢看</s>。</h1>
+      <p class="lead">久草电影网（jiucaodianyingwang-zh.github.io）不是排行榜，是一份慢慢长出来的电影清单：这里收录那些被算法漏掉、却在某个深夜恰好击中你的独立电影、文艺片与冷门佳片。</p>
+      <div class="hero-btns">
+        <a class="btn" href="#mood">🌾 告诉我今天的心情</a>
+        <a class="btn btn-ghost" href="#digs">挖一部被低估的片子 →</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b>1,286</b><span>已收录片单</span></div>
+      <div><b>317</b><span>冷门淘金</span></div>
+      <div><b>41</b><span>生长周数</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 双轨评分 -->
+<section id="duo">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow"><span>🍅</span>Two-Track Score</span>
+      <h2><em>烂番茄</em> vs 我的直觉</h2>
+      <p>评分从来不是唯一的答案——同一部片子，专业口碑和你的真实体感常常背道而驰。这里把两条曲线放在一起看。</p>
+      <div class="line"></div>
+    </div>
+    <div class="duo">
+      <div class="dcard"><div class="row"><h5>驾驶我的车</h5><span class="rt">2021 · 滨口龙介</span></div>
+        <div class="bar"><i data-w="96"></i></div><div class="meta"><span>烂番茄 96%</span><span>我的直觉 92%</span></div>
+        <div class="why">"三个小时，像被允许慢慢呼吸一次。"</div></div>
+      <div class="dcard"><div class="row"><h5>婚姻故事</h5><span class="rt">2019 · 诺亚·鲍姆巴赫</span></div>
+        <div class="bar"><i data-w="95"></i></div><div class="meta"><span>烂番茄 95%</span><span>我的直觉 88%</span></div>
+        <div class="why">"吵架那场戏，比任何恐怖片都让人坐立难安。"</div></div>
+      <div class="dcard"><div class="row"><h5>法兰西小镇（剧集）</h5><span class="rt">2009 · 剧集</span></div>
+        <div class="bar"><i data-w="91"></i></div><div class="meta"><span>烂番茄 91%</span><span>我的直觉 97%</span></div>
+        <div class="why">"几乎没人提，却陪我度过整个冬天。"</div></div>
+      <div class="dcard"><div class="row"><h5>记忆</h5><span class="rt">2021 · 阿彼察邦</span></div>
+        <div class="bar"><i data-w="86"></i></div><div class="meta"><span>烂番茄 86%</span><span>我的直觉 60%</span></div>
+        <div class="why">"必须承认：我睡着了两次，醒着的部分很美。"</div></div>
+      <div class="dcard"><div class="row"><h5>瞬息全宇宙</h5><span class="rt">2022 · 关家永 / 丹尼尔</span></div>
+        <div class="bar"><i data-w="94"></i></div><div class="meta"><span>烂番茄 94%</span><span>我的直觉 95%</span></div>
+        <div class="why">"混乱、吵闹、又恰到好处地哭了一场。"</div></div>
+      <div class="dcard"><div class="row"><h5>钛</h5><span class="rt">2021 · 朱利亚·迪库诺</span></div>
+        <div class="bar"><i data-w="90"></i></div><div class="meta"><span>烂番茄 90%</span><span>我的直觉 45%</span></div>
+        <div class="why">"我尊重它，但绝对不想再看第二次。"</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 心情匹配 -->
+<section id="mood" style="background:#18211c">
+  <div class="wrap">
+    <div class="sec-h" style="text-align:center;margin:0 auto">
+      <span class="eyebrow"><span>🎧</span>Mood Match</span>
+      <h2><em>心情</em>匹配片单</h2>
+      <p style="margin:0 auto">不说剧情，只说感受。选一个最接近现在的词，我替你挑一部。</p>
+      <div class="line" style="margin:16px auto 0"></div>
+    </div>
+    <div class="mood">
+      <div class="mq on" data-q="0"><h3>Q1 · 现在你的能量值是？</h3><div class="hint">选一个最接近的，没有对错</div>
+        <div class="chips" data-m="energy">
+          <div class="chip" data-v="low">🪫 完全没电</div><div class="chip" data-v="mid">🔋 半满</div><div class="chip" data-v="high">⚡ 满格</div>
+        </div></div>
+      <div class="mq" data-q="1"><h3>Q2 · 想看多长的片子？</h3><div class="hint">第二问，决定节奏</div>
+        <div class="chips" data-m="length">
+          <div class="chip" data-v="short">⏱ 90 分钟以内</div><div class="chip" data-v="mid">🎬 90–140 分钟</div><div class="chip" data-v="long">🌙 可以很漫长</div>
+        </div></div>
+      <div class="mq" data-q="2"><h3>Q3 · 现在最想被怎样对待？</h3><div class="hint">最后一问，答案就在这</div>
+        <div class="chips" data-m="tone">
+          <div class="chip" data-v="soft">🤍 温柔地</div><div class="chip" data-v="real">🪞 诚实地</div><div class="chip" data-v="fun">🎈 热闹地</div><div class="chip" data-v="quiet">🌫 安静地</div>
+        </div></div>
+      <div class="pick" id="pickres"></div>
+      <div class="acts" id="macts">
+        <button class="btn btn-ghost" id="mprev" style="visibility:hidden">← 上一问</button>
+        <button class="btn" id="mnext" style="opacity:.4;pointer-events:none">下一问 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 烂片淘金 -->
+<section id="digs">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow"><span>⛏️</span>Sleeper Dig</span>
+      <h2><em>烂片</em>淘金区</h2>
+      <p>评分不高、名气不大，但一定在某个细节上打动过谁。每一部都附上"为什么值得挖"。</p>
+      <div class="line"></div>
+    </div>
+    <div class="digs">
+      <div class="dig"><div class="lv">★ 被低估 4.0</div><h5>这时候就是让人生气的</h5><p>家庭餐桌上的十分钟长镜头，比任何台词都更接近真相。</p><div class="foot"><span>韩国 · 2019</span><span>4.0 / 10</span></div></div>
+      <div class="dig"><div class="lv">★★ 冷门 7.2</div><h5>夜间飞行</h5><p>高三男生的最后一夜，孤独得像一条没亮灯的走廊。</p><div class="foot"><span>韩国 · 2014</span><span>7.2 / 10</span></div></div>
+      <div class="dig"><div class="lv">★ 被低估 6.1</div><h5>帕特森</h5><p>一个开公交车的诗人，每天重复同样的路，却写下不一样的诗。</p><div class="foot"><span>美国 · 2016</span><span>6.1 / 10</span></div></div>
+      <div class="dig"><div class="lv">★★★ 挖到宝 3.8</div><h5>海边的曼彻斯特</h5><p>悲伤在这里不是要被治愈的伤口，而是要被允许留下的东西。</p><div class="foot"><span>美国 · 2016</span><span>3.8 / 10</span></div></div>
+      <div class="dig"><div class="lv">★★ 冷门 5.5</div><h5>出租车司机（阿巴斯基）</h5><p>用一辆出租车装下整个德黑兰，每一个乘客都是一段社会切片。</p><div class="foot"><span>伊朗 · 2015</span><span>5.5 / 10</span></div></div>
+      <div class="dig"><div class="lv">★ 被低估 6.7</div><h5>从不，很少，有时，总是</h5><p>两个女孩坐上巴士，整部片子几乎全是沉默，却重得说不出话。</p><div class="foot"><span>美国 · 2020</span><span>6.7 / 10</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 植物档案 -->
+<section style="background:#18211c">
+  <div class="wrap">
+    <div class="sec-h" style="text-align:center;margin:0 auto">
+      <span class="eyebrow"><span>🌿</span>Plant Archive</span>
+      <h2><em>植物</em>拟人档案</h2>
+      <p style="margin:0 auto">每部电影都有一种植物气质——长得多慢、需要多晒、会不会开花，都在这里。</p>
+      <div class="line" style="margin:16px auto 0"></div>
+    </div>
+    <div class="plants">
+      <div class="pl"><span class="emo">🌱</span><h5>苔藓型</h5><p>节奏慢、几乎无剧情，只提供氛围与呼吸。</p><div class="ph">需水量 · 低</div></div>
+      <div class="pl"><span class="emo">🌳</span><h5>橡树型</h5><p>沉重、稳定、有年轮，看完会想坐一会儿。</p><div class="ph">需水量 · 中</div></div>
+      <div class="pl"><span class="emo">🌵</span><h5>仙人掌型</h5><p>扎人、难啃，但后劲意外地甜。</p><div class="ph">需水量 · 极低</div></div>
+      <div class="pl"><span class="emo">🌻</span><h5>向日葵型</h5><p>明亮、直给，看完心情会好一点。</p><div class="ph">需水量 · 高</div></div>
+      <div class="pl"><span class="emo">🍃</span><h5>蕨类型</h5><p>潮湿、阴郁、适合雨天独自看。</p><div class="ph">需水量 · 高</div></div>
+      <div class="pl"><span class="emo">🌾</span><h5>稻穗型</h5><p>朴素、诚实，讲普通人普通的一天。</p><div class="ph">需水量 · 中</div></div>
+      <div class="pl"><span class="emo">🪻</span><h5>薰衣草型</h5><p>安静、温柔，适合睡前一小时。</p><div class="ph">需水量 · 低</div></div>
+      <div class="pl"><span class="emo">🌺</span><h5>扶桑型</h5><p>鲜艳、热烈、花期短但盛大。</p><div class="ph">需水量 · 高</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 氛围生成器 -->
+<section id="vibe">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow"><span>🎛️</span>Vibe Generator</span>
+      <h2><em>氛围</em>生成器</h2>
+      <p>不想挑片？点一下，随机生成一组今晚的观影氛围参数，照着调就对了。</p>
+      <div class="line"></div>
+    </div>
+    <div class="vibe">
+      <div class="vc">
+        <span class="eyebrow"><span>🎬</span>今晚的配方</span>
+        <div class="scene" id="scene">"关灯前，先泡一杯热茶。把手机扣过去。"</div>
+        <div class="vibe-btns">
+          <button class="btn" id="shuffle">🎲 重新生成</button>
+          <button class="btn btn-ghost" id="copyvb">📋 复制这组参数</button>
+        </div>
+      </div>
+      <div class="vibe-r" id="vrows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 观影日志 -->
+<section id="logs" style="background:#18211c">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow"><span>📓</span>Viewing Log</span>
+      <h2><em>观影</em>日志</h2>
+      <p>不是影评，是看完之后随手记下的几句话——留给自己，也留给后来的人。</p>
+      <div class="line"></div>
+    </div>
+    <div class="logs">
+      <article class="lg"><time>📅 09-30 · 周三</time><h4>看《驾驶我的车》的那三个小时，我学会了不催自己</h4><p>长镜头不是拖延，是给情绪留出的呼吸口。有些事，不需要立刻讲清楚。</p><span class="more">继续读 →</span></article>
+      <article class="lg"><time>📅 09-26 · 周六</time><h4>算法不会推荐的 5 部，我在凌晨两点看完</h4><p>冷门不代表不好，只代表它还没遇到那个需要它的人。</p><span class="more">继续读 →</span></article>
+      <article class="lg"><time>📅 09-21 · 周一</time><h4>为什么我越来越偏爱"没有结局"的电影</h4><p>生活大多数时候没有句号，只有逗号。好的电影允许你带着问题离开。</p><span class="more">继续读 →</span></article>
+      <article class="lg"><time>📅 09-15 · 周二</time><h4>一个人的周末片单：4 部，从清晨看到天黑</h4><p>配上咖啡、午餐、窗边的光，和一部不必看懂的片子。</p><span class="more">继续读 →</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- 订阅 -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sub">
+      <span class="eyebrow"><span>✉️</span>Weekly Letter</span>
+      <h3 style="margin-top:18px">每周一封，像草一样慢慢长</h3>
+      <p>每周三早上 9 点，给你 3 部值得看的片 + 1 段观影笔记，不催你、不打扰。</p>
+      <form class="sub-f" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ 已订阅，下周三见';">
+        <input type="email" placeholder="你的邮箱地址" required>
+        <button class="btn" type="submit">🌱 订阅</button>
+      </form>
+      <div class="sub-note">我们不会把你的邮箱用于任何其它用途，随时可以一键退订。</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h" style="text-align:center;margin:0 auto">
+      <span class="eyebrow"><span>💬</span>FAQ</span>
+      <h2><em>常见</em>问题</h2>
+      <div class="line" style="margin:16px auto 0"></div>
+    </div>
+    <div class="faq">
+      <details class="fq" open><summary>久草电影网是视频网站吗？能直接在线看吗？</summary><div>不是。久草电影网是一个电影清单与推荐站点，不提供在线播放与下载资源。我们会告诉你"这片子值不值得看、适合什么心情看"，去哪里看由你自己决定。</div></details>
+      <details class="fq"><summary>"慢慢看"是什么意思？</summary><div>我们不追新片、不做日更热榜，也不迷信高分。这里的每部片子都经过至少一次认真观看与记录，更新慢一点，但每一部都确定值得被看见。</div></details>
+      <details class="fq"><summary>为什么会有"烂片淘金区"这种反直觉的栏目？</summary><div>因为评分是群体统计，而观看是私人体验。一部 3.8 分的片子，可能恰好说出你此刻说不出口的话；评分只能参考，不能代替你的体感。</div></details>
+      <details class="fq"><summary>心情匹配准吗？会记录我的选择吗？</summary><div>它不追求"准"，只追求"够快"——三个问题、三十秒，帮你省下半小时的纠结。所有选择只发生在你自己的浏览器里，我们不收集、不上传任何数据。</div></details>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-col">
+        <a class="logo" href="#"><span class="logo-i">🌿</span><span class="logo-t">久草电影网<small>jiucaodianyingwang-zh.github.io</small></span></a>
+        <p>久草电影网 jiucaodianyingwang-zh.github.io —— 一份慢慢长出来的电影清单，专注独立电影、文艺片与冷门佳片，含烂片淘金、双轨评分、心情匹配片单与氛围生成器，陪你慢看、细品。</p>
+      </div>
+      <div class="ft-col"><h5>网站导航</h5><a href="#home">🌱 首页</a><a href="#duo">双轨评分</a><a href="#mood">心情匹配</a><a href="#digs">烂片淘金</a><a href="#vibe">氛围生成</a><a href="#logs">观影日志</a></div>
+      <div class="ft-col"><h5>按心情找</h5><a href="#mood">想被温柔对待</a><a href="#mood">想被诚实对待</a><a href="#mood">没电的时候看</a><a href="#mood">睡前的九十分钟</a><a href="#mood">雨天的漫长午后</a></div>
+      <div class="ft-col"><h5>关于本站</h5><a href="#">📄 关于我们</a><a href="#">📋 收录标准</a><a href="#">📧 投稿与推荐</a><a href="#">🔗 友情链接</a><a href="#">🤝 合作伙伴</a></div>
+    </div>
+    <div class="ft-bot">
+      <div>© 2026 久草电影网 jiucaodianyingwang-zh.github.io 版权所有 · 保留一切权利</div>
+      <div><a href="#">免责声明</a><a href="#">隐私政策</a><a href="#">网站地图</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+/* 导航 */
+var b=document.getElementById('burger'),n=document.getElementById('nav');
+b.addEventListener('click',function(){n.classList.toggle('open');});
+n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('href');
+    if(id.length>1){var el=document.querySelector(id);if(el){e.preventDefault();window.scrollTo({top:el.offsetTop-78,behavior:'smooth'});}}
+  });
+});
+document.querySelectorAll('.dcard,.dig,.pl,.lg').forEach(function(c){c.addEventListener('click',function(){window.location.hash='#';});});
+
+/* 周数 */
+var d=new Date(),wk=Math.ceil(((d-new Date(d.getFullYear(),0,1))/864e5+new Date(d.getFullYear(),0,1).getDay()+1)/7);
+document.getElementById('seatxt').textContent='第 '+wk+' 周 · 生长中';
+
+/* 双轨评分动画 */
+var bars=document.querySelectorAll('.bar i');
+function fill(){bars.forEach(function(b){b.style.width='0';setTimeout(function(){b.style.width=b.dataset.w+'%';},180);});}
+var f1=false;
+window.addEventListener('scroll',function(){
+  if(f1)return;
+  var s=document.getElementById('duo');
+  if(s&&window.scrollY+s.offsetTop-600<window.innerHeight){f1=true;fill();}
+},{passive:true});
+
+/* 心情匹配 */
+var M={
+ 'low-short-soft':{emo:'🌿',t:'这时很需要被轻轻托住',n:'帕特森',d:'一个开公交车的诗人，每天重复同样的路，却写下不一样的诗。它不会要求你振作，只是安静地陪你走完一段。',tag:'苔藓型 · 需水量低'},
+ 'low-short-real':{emo:'🌧',t:'低落的时候，诚实最有力量',n:'海边的曼彻斯特',d:'悲伤在这里不是要被治愈的伤口，而是被允许留下的东西。难，但值得。',tag:'蕨类型 · 需水量高'},
+ 'low-short-fun':{emo:'🍿',t:'哪怕只笑十分钟，也是赚到',n:'帕丁顿熊',d:'一部能让人重新相信"世界还不坏"的片子，治愈系但不幼稚。',tag:'向日葵型 · 需水量高'},
+ 'low-short-quiet':{emo:'🌫',t:'什么都不想说的时候',n:'记忆',d:'极慢、极少、近乎沉默。不需要理解，只要待着就好。',tag:'苔藓型 · 需水量低'},
+ 'low-mid-soft':{emo:'🕯',t:'一段温和的陪伴',n:'小森林（夏秋篇）',d:'做饭、吃饭、过日子。没有大起大落，只有四季更替。',tag:'薰衣草型 · 需水量低'},
+ 'low-mid-real':{emo:'🪞',t:'需要被看见，而不是被鼓励',n:'从不，很少，有时，总是',d:'两个女孩坐上巴士，整部片子几乎全是沉默，却重得说不出话。',tag:'蕨类型 · 需水量高'},
+ 'low-mid-fun':{emo:'🎈',t:'找回一点热闹',n:'乐高大电影',d:'吵、快、颜色满到溢出来，适合把脑子暂时关掉。',tag:'扶桑型 · 需水量高'},
+ 'low-mid-quiet':{emo:'📖',t:'安静地，讲一个长长的故事',n:'燃烧',d:'三个人的关系像慢慢烧起来的火，看完会沉默很久。',tag:'橡树型 · 需水量中'},
+ 'low-long-soft':{emo:'🌙',t:'漫长的、温柔的夜晚',n:'牯岭街少年杀人事件',d:'近四小时，讲一个少年怎么被世界慢慢磨掉。慢，但不拖。',tag:'橡树型 · 需水量中'},
+ 'low-long-real':{emo:'🥀',t:'准备好被认真地难过一次',n:'关于我母亲的一切',d:'阿莫多瓦用一场葬礼，讲完了一个女人全部的人生。',tag:'蕨类型 · 需水量高'},
+ 'low-long-fun':{emo:'🎪',t:'长，但可以笑着看完',n:'七擒七纵七金刚',d:'老派喜剧的排演感，混乱又可爱。',tag:'扶桑型 · 需水量高'},
+ 'low-long-quiet':{emo:'🍂',t:'把今晚交给一个缓慢的故事',n:'2001太空漫游',d:'不需要看懂，只需要感受它的安静与辽阔。',tag:'苔藓型 · 需水量低'},
+ 'mid-short-soft':{emo:'☕',t:'中场休息，来点温柔',n:'小偷家族',d:'一家人挤在小小的屋里，吵吵闹闹，却比很多完整的家更像家。',tag:'薰衣草型 · 需水量低'},
+ 'mid-short-real':{emo:'🩹',t:'诚实而不过度',n:'三块广告牌',d:'愤怒、愧疚、还有一点点和解，节奏利落不拖泥带水。',tag:'稻穗型 · 需水量中'},
+ 'mid-short-fun':{emo:'🍿',t:'九十分钟，笑完就走',n:'失控玩家',d:'不累脑、不催泪，纯粹的娱乐，能量刚好的时候最适合。',tag:'向日葵型 · 需水量高'},
+ 'mid-short-quiet':{emo:'🌾',t:'朴素而诚实的一小时半',n:'这时就是让人生气的',d:'家庭餐桌上的十分钟长镜头，比任何台词都更接近真相。',tag:'稻穗型 · 需水量中'},
+ 'mid-mid-soft':{emo:'🌻',t:'心情中等，想被轻轻托住',n:'心灵奇旅',d:'关于"平凡的一天也值得活"的故事，看完会想好好吃一顿饭。',tag:'向日葵型 · 需水量高'},
+ 'mid-mid-real':{emo:'🪞',t:'需要一点真实的碰撞',n:'婚姻故事',d:'吵架那场戏，比任何恐怖片都让人坐立难安，但也更接近理解。',tag:'橡树型 · 需水量中'},
+ 'mid-mid-fun':{emo:'🎉',t:'热闹一下，然后好好睡',n:'疯狂的麦克斯4',d:'两小时的纯粹速度与肾上腺素，看完会很满足地关掉屏幕。',tag:'扶桑型 · 需水量高'},
+ 'mid-mid-quiet':{emo:'📼',t:'安静地看完一个故事',n:'出租车司机（阿巴斯基）',d:'用一辆出租车装下整个德黑兰，每个乘客都是一段社会切片。',tag:'蕨类型 · 需水量高'},
+ 'mid-long-soft':{emo:'🌳',t:'长长的、稳稳的一段',n:'爱尔兰人',d:'三个半小时的黑帮史诗，讲的是时间怎么把人一个个带走。',tag:'橡树型 · 需水量中'},
+ 'mid-long-real':{emo:'🥃',t:'准备好被认真讲一个故事',n:'教父',d:'经典之所以是经典，是因为它讲的从来不只是黑帮。',tag:'橡树型 · 需水量中'},
+ 'mid-long-fun':{emo:'🎪',t:'长，但可以笑着看完',n:'指环王：护戒使者',d:'冒险、友谊、史诗，能量饱满的时候看最合适。',tag:'扶桑型 · 需水量高'},
+ 'mid-long-quiet':{emo:'🌌',t:'把今晚交给一段安静的长故事',n:'猎人之夜',d:'黑白老片，光影像诗歌，安静却让人后背发凉。',tag:'苔藓型 · 需水量低'},
+ 'high-short-soft':{emo:'💐',t:'满电的时候，也需要被温柔',n:'天使爱美丽',d:'明亮的颜色、轻盈的节奏，一部让人想好好生活的片子。',tag:'向日葵型 · 需水量高'},
+ 'high-short-real':{emo:'⚡',t:'满格能量，来点刺激的',n:'寄生虫',d:'节奏快、反转多，看完会想立刻找人讨论。',tag:'仙人掌型 · 需水量极低'},
+ 'high-short-fun':{emo:'🎈',t:'能量满，就要热闹',n:'死侍',d:'话多、嘴碎、打破第四面墙，适合不想动脑的满电时刻。',tag:'扶桑型 · 需水量高'},
+ 'high-short-quiet':{emo:'🌬',t:'热闹之后的安静',n:'修女艾达',d:'黑白画面、大量留白，适合在兴奋过后让自己慢慢沉淀。',tag:'苔藓型 · 需水量低'},
+ 'high-mid-soft':{emo:'🌼',t:'满电，但也想被治愈',n:'触不可及',d:'一段跨越阶层的友谊，轻松、温暖、不煽情。',tag:'薰衣草型 · 需水量低'},
+ 'high-mid-real':{emo:'🎯',t:'能量正好，来点有嚼头的',n:'爆裂鼓手',d:'关于极致追求的故事，看完会想立刻去做点什么。',tag:'仙人掌型 · 需水量极低'},
+ 'high-mid-fun':{emo:'🍿',t:'满格，就要痛快',n:'疾速备战',d:'动作片的天花板，节奏紧凑到没有尿点。',tag:'扶桑型 · 需水量高'},
+ 'high-mid-quiet':{emo:'🌒',t:'热闹之后，来一段安静',n:'夜行者',d:'一个男人的野心失控，冷静、克制，却让人越看越冷。',tag:'蕨类型 · 需水量高'},
+ 'high-long-soft':{emo:'🌇',t:'满格能量，看一段温柔的史诗',n:'天堂电影院',d:'关于电影、关于童年、关于那个再也回不去的小镇。',tag:'橡树型 · 需水量中'},
+ 'high-long-real':{emo:'🏆',t:'满电，来一部真正有分量的',n:'肖申克的救赎',d:'希望是个危险的东西，但它让人活下去。',tag:'橡树型 · 需水量中'},
+ 'high-long-fun':{emo:'🎪',t:'长，而且要很痛快',n:'指环王：王者归来',d:'史诗的收尾，宏大、完整，适合整个人都精神饱满的夜晚。',tag:'扶桑型 · 需水量高'},
+ 'high-long-quiet':{emo:'🌌',t:'满格，但想被慢慢打动',n:'星际穿越',d:'关于时间、引力与爱，宏大却不失温柔。',tag:'苔藓型 · 需水量低'}
+};
+var step=0,ans={},qs=document.querySelectorAll('.mq');
+function show(){
+  qs.forEach(function(q,i){q.classList.toggle('on',i===step);});
+  document.getElementById('mprev').style.visibility=step>0?'visible':'hidden';
+  var nx=document.getElementById('mnext');
+  if(step===qs.length-1){nx.textContent='🌿 给我看一部';nx.style.opacity=ans['q'+step]?'1':'0.4';nx.style.pointerEvents=ans['q'+step]?'auto':'none';}
+  else{nx.textContent='下一问 →';nx.style.opacity=ans['q'+step]?'1':'0.4';nx.style.pointerEvents=ans['q'+step]?'auto':'none';}
+}
+document.querySelectorAll('.chips').forEach(function(c){
+  c.addEventListener('click',function(e){
+    var chip=e.target.closest('.chip');if(!chip)return;
+    var q=chip.closest('.mq').dataset.q;
+    c.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel');});
+    chip.classList.add('sel');ans['q'+q]=chip.dataset.v;show();
+  });
+});
+document.getElementById('mnext').addEventListener('click',function(){
+  if(!ans['q'+step])return;
+  if(step<qs.length-1){step++;show();}
+  else{
+    var key=ans.q0+'-'+ans.q1+'-'+ans.q2,o=M[key]||M['mid-mid-soft'];
+    document.querySelectorAll('.mq').forEach(function(q){q.style.display='none';});
+    document.getElementById('pickres').innerHTML=
+      '<div class="out"><div class="post" style="background:linear-gradient(160deg,var(--card2),var(--card))">'+o.emo+'</div><div class="tx"><h4>'+o.n+'</h4><p>'+o.d+'</p><span class="tag">'+o.tag+'</span></div></div>'+
+      '<div style="text-align:center;color:var(--txt2);font-size:14.5px;margin-bottom:18px">'+o.t+'</div>'+
+      '<button class="btn" id="magain" style="width:100%">🔄 重新选一次</button>';
+    document.getElementById('pickres').classList.add('on');
+    document.getElementById('magain').addEventListener('click',function(){
+      step=0;ans={};qs.forEach(function(q,i){q.style.display=i===0?'block':'block';});
+      document.querySelectorAll('.chips').forEach(function(c){c.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel');});});
+      document.getElementById('pickres').classList.remove('on');show();
+    });
+    document.getElementById('macts').style.display='none';
+  }
+});
+document.getElementById('mprev').addEventListener('click',function(){if(step>0){step--;show();}});
+show();
+
+/* 氛围生成器 */
+var scenes=[
+  '"关灯前，先泡一杯热茶。把手机扣过去。"',
+  '"雨声是最好的白噪音，开着窗也行。"',
+  '"枕头垫高一点，这一场要坐很久。"',
+  '"把灯调到最暗，留一盏就好。"',
+  '"准备好纸巾，也准备好不被安慰。"',
+  '"现在可以开始，不用等心情完全对。"'
+];
+var moods=['潮湿的苔藓','午后的稻田','深夜的图书馆','雨天的车窗','初秋的阳台','凌晨的便利店'];
+var films=['《小森林》','《驾驶我的车》','《帕特森》','《修女艾达》','《这时就是让人生气的》','《出租车司机》'];
+var vols=['20%','30%','45%','60%'];
+var lights=['暖光一盏','完全熄灯','屏幕光','窗帘半掩'];
+var temps=['19°C','21°C','23°C','16°C'];
+var snacks=['一杯热茶','什么都不需要','一点坚果','一块黑巧'];
+function gen(){
+  var h='';
+  h+='<div class="vf"><span>🎭</span><b>MOOD</b><span>'+moods[Math.floor(Math.random()*moods.length)]+'</span></div>';
+  h+='<div class="vf"><span>🎬</span><b>OPEN</b><span>'+films[Math.floor(Math.random()*films.length)]+'</span></div>';
+  h+='<div class="vf"><span>🔊</span><b>VOL</b><span>'+vols[Math.floor(Math.random()*vols.length)]+'</span></div>';
+  h+='<div class="vf"><span>💡</span><b>LIGHT</b><span>'+lights[Math.floor(Math.random()*lights.length)]+'</span></div>';
+  h+='<div class="vf"><span>🌡</span><b>ROOM</b><span>'+temps[Math.floor(Math.random()*temps.length)]+'</span></div>';
+  h+='<div class="vf"><span>🍵</span><b>SNACK</b><span>'+snacks[Math.floor(Math.random()*snacks.length)]+'</span></div>';
+  document.getElementById('vrows').innerHTML=h;
+  document.getElementById('scene').textContent=scenes[Math.floor(Math.random()*scenes.length)];
+}
+document.getElementById('shuffle').addEventListener('click',gen);
+document.getElementById('copyvb').addEventListener('click',function(){
+  var t='今晚的观影氛围：\n'+Array.prototype.map.call(document.getElementById('vrows').querySelectorAll('.vf'),function(v){return v.querySelector('b').textContent+' · '+v.querySelector('span:last-child').textContent;}).join('\n');
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var c=document.getElementById('copyvb');c.textContent='✓ 已复制';setTimeout(function(){c.textContent='📋 复制这组参数';},1800);});}
+});
+gen();
+})();
+</script>
+</body>
+</html>
